@@ -1,0 +1,20 @@
+name: Jalankan Tes Otomatis
+
+on: [push]
+
+jobs:
+  tes-otomatis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Siapkan Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Pasang pytest
+        run: pip install pytest
+
+      - name: Jalankan tes
+        run: pytest
